@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Error() {
+const Loading = ({message}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Permission to access location was denied</Text>
+      <Text style={styles.text}>{message}</Text>
     </View>
   );
 }
@@ -12,13 +13,18 @@ export default function Error() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
     backgroundColor: '#fdf6aa',
   },
   text: {
-    marginHorizontal: 10,
-    fontSize: 20,
+    fontSize: 30,
     color: "#222"
   }
 });
+
+Loading.propTypes = {
+  message: PropTypes.string.isRequired,
+}
+
+export default Loading;
